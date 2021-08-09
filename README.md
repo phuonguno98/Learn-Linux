@@ -20,4 +20,4 @@ Nguyen Thanh Phuong, Network security engineer from Ho Chi Minh City.
 
 ## License
 
-Copyright &copy; [Nguyen Thanh Phuong](https://www.github.com/phuonguno98)
+[UNO](LICENSE.md) &copy; 2021
