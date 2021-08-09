@@ -1,4 +1,5 @@
 Copyright &copy; 2021 Nguyen Thanh Phuong
+
 This is a license exclusively for the software, packages, and documents belonging to this Github account.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software (or package) and associated documentation files the Software (or Package), to deal in the Software (or Package) without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software (or Package), and to permit persons to whom the Software (or Package) is furnished to do so, subject to the following conditions:
