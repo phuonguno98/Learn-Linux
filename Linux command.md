@@ -33,13 +33,7 @@
 
 
 
-## Contribution
-
-* Open a pull request with improvements
-* Discuss ideas in issues
-* Spread the word
-* Reach out with any feedback [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/ziishaned.svg?style=social&label=Follow%20%40ziishaned)](https://twitter.com/ziishaned)
 
 ## License
 
-MIT &copy; [Zeeshan Ahmad](https://twitter.com/ziishaned)
+UNO &copy; [Nguyen Thanh Phuong](https://www.facebook.com/phuonguno.vn)
