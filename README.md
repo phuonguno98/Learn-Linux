@@ -17,3 +17,7 @@ Nguyen Thanh Phuong, Network security engineer from Ho Chi Minh City.
 # Contents
 
 * [Brief description of linux commands ](content/Linux-command.md)
+
+## License
+
+Copyright &copy; [Nguyen Thanh Phuong](https://www.github.com/phuonguno98)
