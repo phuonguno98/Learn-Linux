@@ -29,8 +29,7 @@
 |rm -rf `dir`|Force remove directory `dir`|
 |cp `file1` `file2`|Copy `file1` to `file2`|
 |cp -r `dir1` `dir2`|Copy `dir1` to `dir2`; create `dir2` if it doesn't exist|
-|mv `file1` `file2`|Rename or Remove `file1` to `file2`; if `file2` is an exist directory,/
- moves `file1` into directory `file2`|
+|mv `file1` `file2`|Rename or Remove `file1` to `file2`; if `file2` is an exist directory, moves `file1` into directory `file2`|
 |ln -s `file` `link`|Create symbolic link: `link` to `file`|
 |touch `file`|Create a plain `file` or Update the timestamp of `file`|
 |cat > `file`|Places standard input to `file`|
@@ -46,7 +45,10 @@
 |ps|Display your currently active processes|
 |top|Display all running processes|
 |kill `pid`| Kill process id `pid`|
-|||
+|killall `proc`|Kill all processes named `proc`|
+|bg|Lists stopped or background jobs; resume a stopped job in the background|
+|fg|Brings the most recent job to foreground|
+|fg `job`|Brings `job` to foreground|
 
 ## License
 
