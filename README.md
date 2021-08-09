@@ -8,7 +8,7 @@ Learn Linux Basic
     </a>
 </p>
 
-#Author
+# Author
 
 Nguyen Thanh Phuong, Network security engineer from Ho Chi Minh City.
 
