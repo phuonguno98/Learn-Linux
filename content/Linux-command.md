@@ -2,7 +2,7 @@
 
 <p align="center">
     <br/>
-    <a href="https://github.com/phuonguno98/Learn-Linux/content/Linux command.md">	
+    <a href="https://github.com/phuonguno98/Learn-Linux/content/Linux-command.md">	
         <img src="img/Linux_command.PNG" alt="Linux command">
     </a>
 </p>
@@ -77,6 +77,8 @@ Change the permissions of `file` to `octal`, which can be found separately for u
 |`command` \| grep `pattern`|Search for `pattern` in the output of `command`|
 |locate `file`|Find all instances of `file`|
 
+
+## [Back to main page](README.md)
 ## License
 
 UNO &copy; [Nguyen Thanh Phuong](https://www.github.com/phuonguno98)
