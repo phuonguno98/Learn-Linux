@@ -1,9 +1,9 @@
-<a href="https://www.facebook.com/phuonguno.vn" target="_blank"><img src="img/facebook-link.PNG" alt="Nguyen Thanh Phuong" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+<a href="https://www.facebook.com/phuonguno.vn" target="_blank"><img src="../img/facebook-link.PNG" alt="Nguyen Thanh Phuong" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
 <p align="center">
     <br/>
     <a href="https://github.com/phuonguno98/Learn-Linux/content/Linux-command.md">	
-        <img src="img/Linux_command.PNG" alt="Linux command">
+        <img src="../img/Linux_command.PNG" alt="Linux command">
     </a>
 </p>
 
