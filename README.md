@@ -20,4 +20,4 @@ Nguyen Thanh Phuong, Network security engineer from Ho Chi Minh City.
 
 ## License
 
-[UNO](LICENSE.md) &copy; 2021
+[UNO](LICENSE.md) &copy;
