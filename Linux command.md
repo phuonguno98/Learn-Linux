@@ -52,8 +52,8 @@
 
 ### *File Permissions*
 
-|**chmod** `octal` `file|
-|:|
+|**chmod** `octal` `file`|
+|:----:|
 
 ## License
 
