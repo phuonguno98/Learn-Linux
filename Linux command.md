@@ -55,6 +55,28 @@
 |**chmod** `octal` `file`|
 |:----:|
 
+Change the permissions of `file` to `octal`, which can be found separately for user, group and world by adding:
+* 4 - read (r)
+* 2 - write (w)
+* 1 - execute (x)
+
+### *SSH*
+
+|Command|Description|
+|:----:|----|
+|ssh `user@host`|Connect to `host` as `user`|
+|ssh -p `port` `user@host`|Connect to `host` on port `port` as `user`|
+|ssh-copy-id `user@host`|Add your key to `host` for `user` to enable a keyed or passwordless login|
+
+### *Searching*
+
+|Command|Description|
+|:----:|----|
+|grep `pattern` `files`|Search `pattern` in `files`|
+|grep -r `pattern` `dir`|Search recursively for `pattern` in `dir`|
+|`command` \| grep `pattern`|Search for `pattern` in the output of `command`|
+|locate `file`|Find all instances of `file`|
+
 ## License
 
 UNO &copy; [Nguyen Thanh Phuong](https://www.facebook.com/phuonguno.vn)
