@@ -19,25 +19,25 @@
 |:----:|----|
 |ls|Directory listing|
 |ls -al|Formatted listing with hidden files|
-|cd *dir*|Change directory to *dir*|
+|cd `dir`|Change directory to `dir`|
 |cd|Change directory to home|
 |pwd|Show current directory|
-|mkdir *dir*|Create a directory *dir*|
-|rm *file*|Delete *file*|
-|rm -r *dir*|Delete directory *dir*|
-|rm -f *file*|Force remove *file*|
-|rm -rf *dir*|Force remove directory *dir*|
-|cp *file1* *file2*|Copy *file1* to *file2*|
-|cp -r *dir1* *dir2*|Copy *dir1* to *dir2*; create *dir2* if it doesn't exist|
-|mv *file1* *file2*|Rename or Remove *file1* to *file2*; if *file2* is an exist directory,/
- moves *file1* into directory *file2*|
-|ln -s *file* *link*|Create symbolic link: *link* to *file*|
-|touch *file*|Create a plain *file* or Update the timestamp of *file*|
-|cat > *file*|Places standard input to *file*|
-|more *file*|Output the contents of *file*|
-|head *file*|Output the first 10 lines of *file*|
-|tail *file*|Output the last 10 lines of *file*|
-|tail -f *file*|Output the contents of *file* as it grows, starting with 10 lines|
+|mkdir `dir`|Create a directory `dir`|
+|rm `file`|Delete `file`|
+|rm -r `dir`|Delete directory `dir`|
+|rm -f `file`|Force remove `file`|
+|rm -rf `dir`|Force remove directory `dir`|
+|cp `file1` `file2`|Copy `file1` to `file2`|
+|cp -r `dir1` `dir2`|Copy `dir1` to `dir2`; create `dir2` if it doesn't exist|
+|mv `file1` `file2`|Rename or Remove `file1` to `file2`; if `file2` is an exist directory,/
+ moves `file1` into directory `file2`|
+|ln -s `file` `link`|Create symbolic link: `link` to `file`|
+|touch `file`|Create a plain `file` or Update the timestamp of `file`|
+|cat > `file`|Places standard input to `file`|
+|more `file`|Output the contents of `file`|
+|head `file`|Output the first 10 lines of `file`|
+|tail `file`|Output the last 10 lines of `file`|
+|tail -f `file`|Output the contents of `file` as it grows, starting with 10 lines|
 
 ### *Process Management*
 
@@ -45,7 +45,7 @@
 |:----:|----|
 |ps|Display your currently active processes|
 |top|Display all running processes|
-|kill *pid*| Kill process id *pid*|
+|kill `pid`| Kill process id `pid`|
 
 ## License
 
