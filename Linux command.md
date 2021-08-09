@@ -8,13 +8,13 @@
 </p>
 
 
- ### Brief description of linux commands
+
+# Brief description of linux commands
 
 
-# File Commands
+### File Commands
 |Command|Description|
 |:----:|----|
-
 |ls|Directory listing|
 |ls -al|Formatted listing with hidden files|
 |cd dir|Change directory to dir|
