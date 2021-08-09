@@ -14,6 +14,7 @@
 
 |Command|Description|
 |:----:|----|
+|File Commands|
 |ls|Directory listing|
 |ls -al|Formatted listing with hidden files|
 |cd dir|Change directory to dir|
@@ -29,7 +30,12 @@
 |mv file1 file2|Rename or Remove file1 to file2; if file2 is an exist directory, moves file1 into directory file2|
 |ln -s file link|Create symbolic link: link to file|
 |touch file|Create a plain file or Update the timestamp of file|
-|cat||
+|cat|Places standard input to file|
+|more file|Output the contents of file|
+|head file|Output the first 10 lines of file|
+|tail file|Output the last 10 lines of file|
+|tail -f file|Output the contents of file as it grows, starting with 10 lines|
+|||
 
 
 
