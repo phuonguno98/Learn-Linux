@@ -50,6 +50,11 @@
 |fg|Brings the most recent job to foreground|
 |fg `job`|Brings `job` to foreground|
 
+### *File Permissions*
+
+|**chmod** `octal` `file|
+|:|
+
 ## License
 
 UNO &copy; [Nguyen Thanh Phuong](https://www.facebook.com/phuonguno.vn)
