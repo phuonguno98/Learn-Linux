@@ -1,0 +1,41 @@
+<a href="https://www.facebook.com/phuonguno.vn" target="_blank"><img src="img/facebook-link.PNG" alt="Nguyen Thanh Phuong" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+
+<p align="center">
+    <br/>
+    <a href="https://github.com/phuonguno98/Learn-Linux">	
+        <img src="img/Linux_command.PNG" alt="Learn Linux">
+    </a>
+</p>
+
+
+|Command|Description|
+|:----:|----|
+|ls|Directory listing|
+|ls -al|Formatted listing with hidden files|
+|cd dir|Change directory to dir|
+|cd|Change directory to home|
+|pwd|Show current directory|
+|mkdir dir|Create a directory dir|
+|rm file|Delete file|
+|rm -r dir|Delete directory dir|
+|rm -f file|Force remove file|
+|rm -rf |Force remove directory dir|
+|cp file1 file2|Copy file1 to file2|
+|cp -r dir1 dir2|Copy dir1 to dir2; create dir2 if it doesn't exist|
+|mv file1 file2|Rename or Remove file1 to file2; if file2 is an exist directory, moves file1 into directory file2|
+|ln -s file link|Create symbolic link: link to file|
+|touch file|Create a plain file or Update the timestamp of file|
+|cat||
+
+
+
+## Contribution
+
+* Open a pull request with improvements
+* Discuss ideas in issues
+* Spread the word
+* Reach out with any feedback [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/ziishaned.svg?style=social&label=Follow%20%40ziishaned)](https://twitter.com/ziishaned)
+
+## License
+
+MIT &copy; [Zeeshan Ahmad](https://twitter.com/ziishaned)
