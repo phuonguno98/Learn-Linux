@@ -46,6 +46,7 @@
 |ps|Display your currently active processes|
 |top|Display all running processes|
 |kill `pid`| Kill process id `pid`|
+|||
 
 ## License
 
