@@ -8,9 +8,8 @@
 </p>
 
 
-******************************************
-*  Brief description of linux commands   *
-******************************************
+ ## Brief description of linux commands
+
 
 
 |Command|Description|
