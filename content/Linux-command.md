@@ -79,6 +79,7 @@ Change the permissions of `file` to `octal`, which can be found separately for u
 
 
 ## [Back to main page](../README.md)
+
 ## License
 
 Copyright &copy; [Nguyen Thanh Phuong](https://www.github.com/phuonguno98)
