@@ -78,7 +78,7 @@ Change the permissions of `file` to `octal`, which can be found separately for u
 |locate `file`|Find all instances of `file`|
 
 
-## [Back to main page](README.md)
+## [Back to main page](../README.md)
 ## License
 
 UNO &copy; [Nguyen Thanh Phuong](https://www.github.com/phuonguno98)
