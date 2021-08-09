@@ -14,9 +14,7 @@
 
 |Command|Description|
 |:----:|----|
-
-|File Commands|
-
+|File Commands|--------|
 |ls|Directory listing|
 |ls -al|Formatted listing with hidden files|
 |cd dir|Change directory to dir|
