@@ -2,7 +2,7 @@
 
 <p align="center">
     <br/>
-    <a href="https://github.com/phuonguno98/Learn-Linux/content/Linux-command.md">	
+    <a href="../content/Linux-command.md">	
         <img src="../img/Linux_command.PNG" alt="Linux command">
     </a>
 </p>
