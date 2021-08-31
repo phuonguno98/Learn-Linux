@@ -8,17 +8,18 @@ Learn Linux Basic
     </a>
 </p>
 
+
+## Contents
+
+* [Brief description of linux commands ](content/Linux-command.md)
+* To be continue...
+
 ## Contribution
 
 **Nguyễn Thanh Phương**
 
 Email: unovn.contact@gmail.com  
 Telegram: [phuonguno](https://t.me/phuonguno)
-
-## Contents
-
-* [Brief description of linux commands ](content/Linux-command.md)
-* To be continue...
 
 ## License
 
