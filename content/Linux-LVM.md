@@ -46,6 +46,8 @@
     - [Tạo filesystem và mount các volume](#tạo-filesystem-và-mount-các-volume)
 - [Tính năng Manage Multiple Logical Volume Management Disk sử dụng Striping I/O](#tính-năng-manage-multiple-logical-volume-management-disk-sử-dụng-striping-io)
 - [Tính năng LVM Migration](#tính-năng-lvm-migration)
+- [Tăng dung lượng ổ cứng chứa OS và mở rộng phân vùng root (/)](#tăng-dung-lượng-ổ-cứng-chứa-os-và-mở-rộng-phân-vùng-root-)
+- [Tăng dung lượng phân vùng root (/) bằng cách gắn thêm ổ cứng mới](#tăng-dung-lượng-phân-vùng-root--bằng-cách-gắn-thêm-ổ-cứng-mới)
 - [Back to main page](#back-to-main-page)
 
 # Tổng quan về Logical Volume Management
@@ -795,5 +797,148 @@ Như vậy, ta đã chuyển chuyển dữ liệu từ `sdb1` sang `sdc1` thành
     <a><img src="../img/75.png"></a>
 </p>
 
+***
+# Tăng dung lượng ổ cứng chứa OS và mở rộng phân vùng root (/)
+Dung lượng của máy ảo hiện tại là 01 ổ cứng với 50GB
+
+<p align="center">
+    <br/>
+    <a><img src="../img/76.png"></a>
+</p>
+
+Phân vùng root (/) hiện tại là 45GB
+
+<p align="center">
+    <br/>
+    <a><img src="../img/77.png"></a>
+</p>
+
+Giờ ta thực tăng dung lượng cho ổ cứng thêm 20GB và sau đó tăng dung lượng của phân vùng root (/) lên thêm 20GB (tổng cộng sau tăng là root: 65GB). Sau khi tăng dung lượng của ổ cứng:
+
+<p align="center">
+    <br/>
+    <a><img src="../img/78.png"></a>
+</p>
+
+Kiểm tra máy đã nhận dung lượng, phân vùng sda lúc này đã được tăng thêm 20GB (thành 70GB):
+
+<p align="center">
+    <br/>
+    <a><img src="../img/79.png"></a>
+</p>
+
+Tiếp theo, cài đặt gói `cloud-utils-growpart` để mở rộng phân vùng bằng lệnh sau:
+
+`[root@localhost admin]# dnf install cloud-utils-growpart`
+
+(lệnh trên dùng trên CentOS)
+
+Ta mở rộng dung lượng cho phân vùng `sda2` đang chứa root (/) bằng lệnh: `[root@localhost admin]# growpart /dev/sda 2`
+
+<p align="center">
+    <br/>
+    <a><img src="../img/80.png"></a>
+</p>
+
+Dung lượng của `sda2` lúc này đã tăng lên thêm 20GB (thành 69GB):
+
+<p align="center">
+    <br/>
+    <a><img src="../img/81.png"></a>
+</p>
+
+Như vậy, ta đã có thể tăng dung lượng cho phân vùng root (/). Mở rộng dung lượng cho phân vùng root (/) bằn lệnh: `[root@localhost admin]# pvresize /dev/sda2`
+
+<p align="center">
+    <br/>
+    <a><img src="../img/82.png"></a>
+</p>
+
+Kiểm tra dung lượng của volume group:
+
+<p align="center">
+    <br/>
+    <a><img src="../img/83.png"></a>
+</p>
+
+Tiến hành resize LV phân vùng root (`cl-root`): `[root@localhost admin]# lvextend -l +100%FREE /dev/mapper/cl-root`
+
+<p align="center">
+    <br/>
+    <a><img src="../img/84.png"></a>
+</p>
+
+Cập nhật filesystem để nhận dung thêm dung lượng mới. Do phân vùng root (/) sử dụng định dạng xfs nên sử dụng lệnh sau:
+
+`[root@localhost admin]# xfs_growfs /dev/mapper/cl-root`
+
+<p align="center">
+    <br/>
+    <a><img src="../img/85.png"></a>
+</p>
+
+Kiểm tra lại, dung lượng của root (/) lúc này đã được tăng lên thành 65GB (ban đầu 45GB).
+
+<p align="center">
+    <br/>
+    <a><img src="../img/86.png"></a>
+</p>
+
+***
+
+# Tăng dung lượng phân vùng root (/) bằng cách gắn thêm ổ cứng mới
+Gắn thêm ổ cứng mới dung lượng 20GB cho máy CentOS.
+
+<p align="center">
+    <br/>
+    <a><img src="../img/87.png"></a>
+</p>
+
+<p align="center">
+    <br/>
+    <a><img src="../img/88.png"></a>
+</p>
+
+Tạo partition mới:
+
+<p align="center">
+    <br/>
+    <a><img src="../img/89.png"></a>
+</p>
+
+Tạo physicalvolume: `[root@localhost admin]# pvcreate /dev/sdb1`
+
+<p align="center">
+    <br/>
+    <a><img src="../img/90.png"></a>
+</p>
+
+Mở rộng VG `cl` bằng cách thêm PV `sdb1` vào: `[root@localhost admin]# vgextend cl /dev/sdb1`
+
+<p align="center">
+    <br/>
+    <a><img src="../img/91.png"></a>
+</p>
+
+Mở rộng LV phân vùng root (/): `[root@localhost admin]# lvextend -l +100%FREE /dev/mapper/cl-root`
+
+<p align="center">
+    <br/>
+    <a><img src="../img/92.png"></a>
+</p>
+
+Cập nhật filesystem để nhận dung thêm dung lượng mới. Do phân vùng root (/) sử dụng định dạng xfs nên sử dụng lệnh sau: `[root@localhost admin]# xfs_growfs /dev/mapper/cl-root`
+
+<p align="center">
+    <br/>
+    <a><img src="../img/93.png"></a>
+</p>
+
+Kiểm tra lại, dung lượng của root (/) lúc này đã được tăng lên thành 85GB (ban đầu 65GB) và nằm trên hai LV `sda2` và `sdb1`.
+
+<p align="center">
+    <br/>
+    <a><img src="../img/94.png"></a>
+</p>
 
 # [Back to main page](../README.md)
