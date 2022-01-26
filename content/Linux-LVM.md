@@ -163,7 +163,9 @@ Hiển thị thông tin chi tiết Physical Volume `/dev/sdb1` bằng lệnh: `[
 </p>
 
 ## Tạo Volume Group
-Để tạo một volume group mới có tên “vg001” từ các PV `sdb1` và `sdc1` sử dụng lệnh sau: `[root@localhost admin]# vgcreate vg001 /dev/sdb1 /dev/sdc1`
+Để tạo một volume group mới có tên “vg001” từ các PV `sdb1` và `sdc1` sử dụng lệnh sau:
+
+`[root@localhost admin]# vgcreate vg001 /dev/sdb1 /dev/sdc1`
 
 <p align="center">
     <br/>
