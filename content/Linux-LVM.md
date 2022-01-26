@@ -1,7 +1,7 @@
 <p align="center">
     <br/>
     <a href="../content/Linux-LVM.md">	
-        <img src="../img/LVM-Migration.png" alt="Logical Volume Management">
+        <img src="../img/LVM-Migration.jpg" alt="Logical Volume Management">
     </a>
 </p>
 
