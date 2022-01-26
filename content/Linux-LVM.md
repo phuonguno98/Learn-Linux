@@ -5,8 +5,50 @@
     </a>
 </p>
 
+# Nội dung
+- [Nội dung](#nội-dung)
+- [Tổng quan về Logical Volume Management](#tổng-quan-về-logical-volume-management)
+  - [Giới thiệu về LVM](#giới-thiệu-về-lvm)
+  - [Một số ứng dụng của LVM](#một-số-ứng-dụng-của-lvm)
+  - [Cấu trúc của LVM](#cấu-trúc-của-lvm)
+  - [Các thành phần của LVM](#các-thành-phần-của-lvm)
+    - [Hard drives – Drives](#hard-drives--drives)
+    - [Partition](#partition)
+    - [Physical Volumes – PV](#physical-volumes--pv)
+    - [Volume Group – VG](#volume-group--vg)
+    - [Logical Volume – LV](#logical-volume--lv)
+    - [extent](#extent)
+- [Cài đặt và cấu hình LVM trên hệ điều hành CentOS 8 nền tảng ảo hóa VMware](#cài-đặt-và-cấu-hình-lvm-trên-hệ-điều-hành-centos-8-nền-tảng-ảo-hóa-vmware)
+  - [Tạo máy ảo CentOS và gắn thêm 3 ổ cứng ảo](#tạo-máy-ảo-centos-và-gắn-thêm-3-ổ-cứng-ảo)
+  - [Tạo các Partition cho các ổ đĩa mới](#tạo-các-partition-cho-các-ổ-đĩa-mới)
+  - [Tạo Physical Volume](#tạo-physical-volume)
+  - [Tạo Volume Group](#tạo-volume-group)
+  - [Tạo Logical Volume](#tạo-logical-volume)
+  - [Tạo mount point và thực hiện mount LVM mới](#tạo-mount-point-và-thực-hiện-mount-lvm-mới)
+- [Mở rộng/thay đổi kích thước Logical Volume](#mở-rộngthay-đổi-kích-thước-logical-volume)
+  - [Mở rộng Volume Group](#mở-rộng-volume-group)
+  - [Tăng kích thước Logical Volume](#tăng-kích-thước-logical-volume)
+  - [Giảm dung lượng Logical Volume và Volume Group](#giảm-dung-lượng-logical-volume-và-volume-group)
+  - [Auto-mount Logical Volume](#auto-mount-logical-volume)
+- [Snapshot và restore Logical Volume](#snapshot-và-restore-logical-volume)
+  - [5.1.	Tạo snapshot Logical Volume](#51tạo-snapshot-logical-volume)
+  - [Tăng thêm dung lượng cho snapshot](#tăng-thêm-dung-lượng-cho-snapshot)
+  - [Restore Logical Volume](#restore-logical-volume)
+- [Remove Logical Volume](#remove-logical-volume)
+- [Remove Volume Group](#remove-volume-group)
+- [Remove Physical Volume](#remove-physical-volume)
+- [LVM Thin Provisioning](#lvm-thin-provisioning)
+  - [Giới thiệu Thin Provisioning](#giới-thiệu-thin-provisioning)
+  - [Cấu hình Thin Provisioning](#cấu-hình-thin-provisioning)
+    - [Tạo Volume group](#tạo-volume-group-1)
+    - [Tạo thin pool](#tạo-thin-pool)
+    - [Tạo thin volume](#tạo-thin-volume)
+    - [Tạo filesystem và mount các volume](#tạo-filesystem-và-mount-các-volume)
+- [Tính năng Manage Multiple Logical Volume Management Disk sử dụng Striping I/O](#tính-năng-manage-multiple-logical-volume-management-disk-sử-dụng-striping-io)
+- [Tính năng LVM Migration](#tính-năng-lvm-migration)
+- [Back to main page](#back-to-main-page)
 
-# Tổng quan về
+# Tổng quan về Logical Volume Management
 ## Giới thiệu về LVM
 LVM (**Logical Volume Management**) là một công nghệ giúp quản lý các thiết bị lưu trữ dữ liệu trên các hệ điều hành Linux. Công nghệ này cho phép người dùng gom nhóm các ổ cứng vật lý lại và phân tách chúng thành những phân vùng nhỏ hơn, dễ dàng mở rộng các phân vùng này khi cần thiết.
 
@@ -30,7 +72,7 @@ LVM cho phép ấn định không gian đĩa cứng thành những Logical Volum
 LVM phân các lớp trên các ổ cứng vật lý bao gồm các thành phần sau:
 
 ### Hard drives – Drives
-Thiết bị lưu trữ dữ liệu, ví dụ như trong linux nó là /dev/sda.
+Thiết bị lưu trữ dữ liệu, ví dụ như trong linux nó là `/dev/sda`.
 
 ### Partition
 + Partitions là các phân vùng của Hard drives, mỗi Hard drives có 4 partition, trong đó partition bao gồm 2 loại là primary partition và extended partition.
@@ -68,21 +110,15 @@ Thực hiện add thêm **Hard Disk** cho máy ảo
     <a><img src="../img/2.png"></a>
 </p>
 
-
-Khởi động máy ảo và kiểm tra trạng thái ổ đĩa bằng lệnh:
-
-`[admin@localhost ~]$ lsblk`
+Khởi động máy ảo và kiểm tra trạng thái ổ đĩa bằng lệnh: `[admin@localhost ~]$ lsblk`
 
 <p align="center">
     <br/>
     <a><img src="../img/3.png"></a>
 </p>
 
-
 ## Tạo các Partition cho các ổ đĩa mới
-Tạo Partition cho sdb, sử dụng lệnh:
-
-`[root@localhost admin]# fdisk /dev/sdb`
+Tạo Partition cho `sdb`, sử dụng lệnh: `[root@localhost admin]# fdisk /dev/sdb`
 
 
 <p align="center">
@@ -90,7 +126,7 @@ Tạo Partition cho sdb, sử dụng lệnh:
     <a><img src="../img/4.png"></a>
 </p>
 
-Đã tạo thành công Partition LVM `sdb1` có dung lượng 20G. Thực hiện tương tự đối với sdc. Kết quả sau khi tạo Partition:
+Đã tạo thành công Partition LVM `sdb1` có dung lượng 20G. Thực hiện tương tự đối với `sdc`. Kết quả sau khi tạo Partition:
 
 <p align="center">
     <br/>
@@ -98,9 +134,7 @@ Tạo Partition cho sdb, sử dụng lệnh:
 </p>
 
 ## Tạo Physical Volume
-Tạo các Physical Volume cho `sdb1` và `sdc1` bằng lệnh sau:
-
-`[root@localhost admin]# pvcreate /dev/sdb1 /dev/sdc1`
+Tạo các Physical Volume cho `sdb1` và `sdc1` bằng lệnh sau: `[root@localhost admin]# pvcreate /dev/sdb1 /dev/sdc1`
 
 <p align="center">
     <br/>
@@ -114,7 +148,6 @@ Quét đĩa để kiểm tra: `[root@localhost admin]# lvmdiskscan`
     <a><img src="../img/7.png"></a>
 </p>
 
-
 Để xem các PV vừa tạo ra ta sử dụng lệnh: `[root@localhost admin]# pvs`
 
 <p align="center">
@@ -122,9 +155,7 @@ Quét đĩa để kiểm tra: `[root@localhost admin]# lvmdiskscan`
     <a><img src="../img/8.png"></a>
 </p>
 
-Hiển thị thông tin chi tiết Physical Volume `/dev/sdb1` bằng lệnh: 
-
-`[root@localhost admin]# pvdisplay /dev/sdb1`
+Hiển thị thông tin chi tiết Physical Volume `/dev/sdb1` bằng lệnh: `[root@localhost admin]# pvdisplay /dev/sdb1`
 
 <p align="center">
     <br/>
@@ -132,9 +163,7 @@ Hiển thị thông tin chi tiết Physical Volume `/dev/sdb1` bằng lệnh:
 </p>
 
 ## Tạo Volume Group
-Để tạo một volume group mới có tên “vg001” từ các PV `sdb1` và `s`dc1` sử dụng lệnh sau:
-
-`[root@localhost admin]# vgcreate vg001 /dev/sdb1 /dev/sdc1`
+Để tạo một volume group mới có tên “vg001” từ các PV `sdb1` và `sdc1` sử dụng lệnh sau: `[root@localhost admin]# vgcreate vg001 /dev/sdb1 /dev/sdc1`
 
 <p align="center">
     <br/>
@@ -230,9 +259,7 @@ Mount thành công LV `projects` vào `/projects/`, `/projects/` hiện tại đ
 
 # Mở rộng/thay đổi kích thước Logical Volume
 ## Mở rộng Volume Group
-Kiểm tra dung lượng VG `vg001` hiện tại bằng lệnh
-
-`[root@localhost projects]# vgdisplay vg001`
+Kiểm tra dung lượng VG `vg001` hiện tại bằng lệnh: `[root@localhost projects]# vgdisplay vg001`
 
 <p align="center">
     <br/>
@@ -254,29 +281,23 @@ Tạo PV mới `/dev/sdb2` bằng lệnh: `[root@localhost admin]# pvcreate /dev
     <a><img src="../img/22.png"></a>
 </p>
 
-Mở rộng VG `vg001` bằng cách thêm PV `sdb2` vào `vg001`, sử dụng lệnh:
-
-`[root@localhost admin]# vgextend vg001 /dev/sdb2`
+Mở rộng VG `vg001` bằng cách thêm PV `sdb2` vào `vg001`, sử dụng lệnh: `[root@localhost admin]# vgextend vg001 /dev/sdb2`
 
 <p align="center">
     <br/>
     <a><img src="../img/23.png"></a>
 </p>
 
-Dụng lượng của vg001 lúc này đã được tăng lên thành 56GB và còn trống 16GB. Dung lượng của `vg001` đã được tăng thêm 16GB, như vậy ta có thể tăng kích thước của LV `projects` lên thêm tối đa dưới 16GB.
+Dụng lượng của `vg001` lúc này đã được tăng lên thành 56GB và còn trống 16GB. Dung lượng của `vg001` đã được tăng thêm 16GB, như vậy ta có thể tăng kích thước của LV `projects` lên thêm tối đa dưới 16GB.
 ## Tăng kích thước Logical Volume
-Kiểm tra dung lượng của LV `projects` hiện tại:
-
-`[root@localhost projects]# lvdisplay /dev/vg001/projects `
+Kiểm tra dung lượng của LV `projects` hiện tại: `[root@localhost projects]# lvdisplay /dev/vg001/projects `
 
 <p align="center">
     <br/>
     <a><img src="../img/24.png"></a>
 </p>
 
-Tăng thêm dung lượng cho `projects` thêm 10GB bằng lệnh:
-
-`[root@localhost admin]# lvextend -L +10GB /dev/vg001/projects`
+Tăng thêm dung lượng cho `projects` thêm 10GB bằng lệnh: `[root@localhost admin]# lvextend -L +10GB /dev/vg001/projects`
 
 <p align="center">
     <br/>
@@ -300,7 +321,7 @@ Dung lượng của `projects` lúc này đã được tăng lên và có thể 
     <a><img src="../img/27.png"></a>
 </p>
 
-##Giảm dung lượng Logical Volume và Volume Group
+## Giảm dung lượng Logical Volume và Volume Group
 Khi muốn giảm dung lượng các Logical Volume, ta cần phải chú ý vì nó có thể bị lỗi hoặc bị mất dữ liệu trong khi chúng ta giảm dung lượng của các Logical Volume. Để đảm bảo an toàn khi giảm Logical Volume cần thực hiện các bước sau:
 1.	Trước khi bắt đầu, cần sao lưu dữ liệu để tránh mất mát dữ liệu khi có sự cố xảy ra.
 2.	Khi giảm dung lượng Logical Volume chúng ta phải ngắt kết nối hệ thống tệp trước khi giảm.
@@ -316,9 +337,7 @@ Khi muốn giảm dung lượng các Logical Volume, ta cần phải chú ý vì
 Giả sử cần giảm dung lượng của LV `projects` lại còn 10GB và giảm dung lượng VG `vg001` xuống còn 40GB, ta thực hiện các bước như sau:
 
 
-Đầu tiên, thực hiện unmount filesystem bằng lệnh:
-
-`[root@localhost ~]# umount /dev/mapper/vg001-projects`
+Đầu tiên, thực hiện unmount filesystem bằng lệnh: `[root@localhost ~]# umount /dev/mapper/vg001-projects`
 
 <p align="center">
     <br/>
@@ -476,9 +495,7 @@ Tạo snapshot `projects-snap01` có dung lượng 10GB cho `/dev/vg001/projects
 **Chú ý**: Chỉ có thể tạo được snapshot có dung lượng nhỏ hơn dung lượng `vg001` còn trống.
 
 
-Lệnh xóa snapshot:
-
-`[root@localhost admin]# lvremove /dev/vg001/VinhLong-snap01`
+Lệnh xóa snapshot: `[root@localhost admin]# lvremove /dev/vg001/VinhLong-snap01`
 
 <p align="center">
     <br/>
@@ -491,9 +508,7 @@ Lệnh xóa snapshot:
 `[root@localhost admin]# lvextend -L +5G /dev/vg001/projects-snap01`
 
 ## Restore Logical Volume
-Trước khi restore cần unmount tệp hệ thống. Lệnh unmount:
-
-`[root@localhost admin]# umount /dev/mapper/vg001-projects`
+Trước khi restore cần unmount tệp hệ thống. Lệnh unmount: `[root@localhost admin]# umount /dev/mapper/vg001-projects`
 
 <p align="center">
     <br/>
@@ -508,9 +523,7 @@ Nội dung của `projects` trước khi restore:
 </p>
 
 
-Để restore lại snapshot, ta sử dụng lệnh sau:
-
-`[root@localhost admin]# lvconvert --merge /dev/vg001/projects-snap01`
+Để restore lại snapshot, ta sử dụng lệnh sau: `[root@localhost admin]# lvconvert --merge /dev/vg001/projects-snap01`
 
 <p align="center">
     <br/>
@@ -534,7 +547,7 @@ Trước khi remove LV, ta phải remove mục nhập `fstab` đã đặt trư�
     <a><img src="../img/50.png"></a>
 </p>
 
-**Ví dụ**: bây giờ chúng ta sẽ loại bỏ LV backups. Trước tiên hãy đảm bảo rằng không có mục nhập nào trong tệp `fastab` cho `backups` và sau đó ngắt kết nối điểm gắn kết `backups`.
+**Ví dụ**: bây giờ chúng ta sẽ loại bỏ LV `backups`. Trước tiên hãy đảm bảo rằng không có mục nhập nào trong tệp `fastab` cho `backups` và sau đó ngắt kết nối điểm gắn kết `backups`.
 
 <p align="center">
     <br/>
@@ -546,18 +559,14 @@ Trước khi remove LV, ta phải remove mục nhập `fstab` đã đặt trư�
     <a><img src="../img/52.png"></a>
 </p>
 
-Sử dụng lệnh sau để thực hiện remove LV backups:
-
-`[root@localhost ~]# lvremove /dev/vg001/backups`
+Sử dụng lệnh sau để thực hiện remove LV `backups`: `[root@localhost ~]# lvremove /dev/vg001/backups`
 
 <p align="center">
     <br/>
     <a><img src="../img/53.png"></a>
 </p>
 
-Sử dụng lệnh sau để thực hiện remove LV backups:
-
-`[root@localhost ~]# lvremove /dev/vg001/backups`
+Sử dụng lệnh sau để thực hiện remove LV `backups`: `[root@localhost ~]# lvremove /dev/vg001/backups`
 
 <p align="center">
     <br/>
@@ -567,13 +576,9 @@ Sử dụng lệnh sau để thực hiện remove LV backups:
 ***
 
 # Remove Volume Group
-Để remove VG `vg001` ta sử dụng lệnh sau:
+Để remove VG `vg001` ta sử dụng lệnh sau: `[root@localhost ~]# vgremove vg001`
 
-`[root@localhost ~]# vgremove vg001`
-
-Hoặc thêm tùy chọn `-f` để xác nhận xóa tất cả các LV có trong VG
-
-`[root@localhost ~]# vgremove -f vg001`
+Hoặc thêm tùy chọn `-f` để xác nhận xóa tất cả các LV có trong VG: `[root@localhost ~]# vgremove -f vg001`
 
 <p align="center">
     <br/>
@@ -707,9 +712,7 @@ Kiểm tra lại bằng lệnh: `[root@localhost /]# lvdisplay /dev/vg001/strip0
     <a><img src="../img/65.png"></a>
 </p>
 
-Để biết các LV phụ thuộc phân vùng nào ta có thể sử dụng lệnh sau:
-
-`[root@localhost /]# dmsetup deps /dev/vg001/strip0[1-2]`
+Để biết các LV phụ thuộc phân vùng nào ta có thể sử dụng lệnh sau: `[root@localhost /]# dmsetup deps /dev/vg001/strip0[1-2]`
 
 <p align="center">
     <br/>
@@ -791,4 +794,4 @@ Như vậy, ta đã chuyển chuyển dữ liệu từ `sdb1` sang `sdc1` thành
 </p>
 
 
-## [Back to main page](../README.md)
+# [Back to main page](../README.md)
