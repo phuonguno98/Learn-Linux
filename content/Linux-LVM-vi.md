@@ -457,7 +457,9 @@ Dung lượng VL `projects` giờ đã được giảm xuống còn 10GB. Tiếp
 
 Kiểm tra lỗi filesystem bằng lệnh:
 
-```[root@localhost admin]# e2fsck -f /dev/vg001/projects```
+```shell
+[root@localhost admin]# e2fsck -f /dev/vg001/projects
+```
 
 <p align="center">    
     <a><img src="../img/34.png"></a>
