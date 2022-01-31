@@ -1,6 +1,6 @@
 <div align="right">
     <div>Language: <a href="../content/Linux-command-en.md">VI</a> | EN</div>
-    <div>Your language contributions are welcome!</div>
+    <div><i>Your language contributions are welcome!</i></div>
 </div>
 <p align="center">
     <a href="../content/Linux-command-en.md">	
