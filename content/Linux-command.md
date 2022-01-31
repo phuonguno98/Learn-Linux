@@ -1,5 +1,7 @@
+<p align="right">
+    Language: <a href="../content/Linux-LVM-en.md">VI</a> | EN
+</p>
 <p align="center">
-    <br/>
     <a href="../content/Linux-command.md">	
         <img src="../img/Linux_command.PNG" alt="Linux command">
     </a>
