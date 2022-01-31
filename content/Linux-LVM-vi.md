@@ -1,6 +1,6 @@
 <p align="right">
-    Language: VI | <a href="../content/Linux-LVM-en.md">EN</a>
-    Your language contributions are welcome!
+    <div>Language: VI | <a href="../content/Linux-LVM-en.md">EN</a></div>
+    <div>Your language contributions are welcome!</div>
 </p>
 <p align="center">
     <a href="../content/Linux-LVM-vi.md">	

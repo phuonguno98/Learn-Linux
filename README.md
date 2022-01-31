@@ -11,7 +11,7 @@ Learn Linux Basic
 
 ## Contents
 
-* [Brief description of linux commands ](content/Linux-command.md)
+* [Brief description of linux commands ](content/Linux-command-en.md)
 * [Logical Volume Management](content/Linux-LVM-vi.md)
 * To be continue...
 
