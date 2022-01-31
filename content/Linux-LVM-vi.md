@@ -1,5 +1,5 @@
 <div align="right">
-    <div><b>Language:</b> <u>VI</u> | <a href="../content/Linux-LVM-en.md">EN</a></div>
+    <div><b>Language:</b> VI | <a href="../content/Linux-LVM-en.md">EN</a></div>
     <div><i>Your language contributions are welcome!</i></div>
 </div>
 <p align="center">

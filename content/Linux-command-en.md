@@ -1,5 +1,5 @@
 <div align="right">
-    <div><b>Language:</b> <a href="../content/Linux-command-en.md">VI</a> | <u>EN</u></div>
+    <div><b>Language:</b> <a href="../content/Linux-command-en.md">VI</a> | EN</div>
     <div><i>Your language contributions are welcome!</i></div>
 </div>
 <p align="center">
