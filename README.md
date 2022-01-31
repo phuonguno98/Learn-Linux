@@ -15,10 +15,10 @@ Learn Linux Basic
 * To be continue...
 
 ## Contribution
-
-**Nguyễn Thanh Phương**
-Email: unovn.contact@gmail.com  
-Telegram: [phuonguno](https://t.me/phuonguno)
+<div><b>Nguyễn Thanh Phương</b></div>
+Email: unovn.contact@gmail.com
+</br>
+![](https://telegram.org/img/t_logo.svg?1) Telegram: [phuonguno](https://t.me/phuonguno)
 
 ## License
 
