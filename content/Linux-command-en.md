@@ -1,8 +1,9 @@
 <p align="right">
-    Language: <a href="../content/Linux-LVM-en.md">VI</a> | EN
+    Language: <a href="../content/Linux-command-en.md">VI</a> | EN
+    Your language contributions are welcome!
 </p>
 <p align="center">
-    <a href="../content/Linux-command.md">	
+    <a href="../content/Linux-command-en.md">	
         <img src="../img/Linux_command.PNG" alt="Linux command">
     </a>
 </p>
