@@ -18,7 +18,7 @@ Learn Linux Basic
 <div><b>Nguyễn Thanh Phương</b></div>
 Email: unovn.contact@gmail.com
 </br>
-![](https://telegram.org/img/t_logo.svg?1) Telegram: [phuonguno](https://t.me/phuonguno)
+Telegram: [phuonguno](https://t.me/phuonguno)
 
 ## License
 
