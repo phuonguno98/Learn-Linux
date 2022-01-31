@@ -1,7 +1,7 @@
-<p align="right">
+<div align="right">
     <div>Language: <a href="../content/Linux-command-en.md">VI</a> | EN</div>
     <div>Your language contributions are welcome!</div>
-</p>
+</div>
 <p align="center">
     <a href="../content/Linux-command-en.md">	
         <img src="../img/Linux_command.PNG" alt="Linux command">
