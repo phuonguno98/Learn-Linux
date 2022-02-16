@@ -1,5 +1,4 @@
 # Learn-Linux
-Learn Linux Basic
 
 <p align="center">
     <a href="https://github.com/phuonguno98/Learn-Linux">	
