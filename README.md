@@ -1,5 +1,3 @@
-# Learn-Linux
-
 <p align="center">
     <a href="https://github.com/phuonguno98/Learn-Linux">	
         <img src="img/linux-cover.jpg" alt="Learn Linux Basic">
